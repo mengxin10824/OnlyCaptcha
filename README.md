@@ -1,6 +1,10 @@
 ## OnlyCaptcha
 
-OnlyCaptcha is a minimal server-side CAPTCHA demo built with Elysia and Bun. It generates image-based CAPTCHAs consisting of several objects and verifies a user's click coordinates on the image.
+![Preview](image.png)
+
+OnlyCaptcha is a minimal server-side CAPTCHA demo built with Elysia and Bun.
+
+It generates image-based CAPTCHAs consisting of several objects and verifies a user's click coordinates on the image.
 
 Key ideas
 - Server generates a unique `captchaId` and an image with a target coordinate for each page render.
@@ -35,25 +39,3 @@ Notes
 - The server-side Map that stores captchas automatically deletes each entry after 5 minutes to avoid memory growth.
 - Native HTML forms cannot set custom request headers; use a hidden form field to transmit `captchaId`. To use headers, submit via fetch/XHR from the client.
 
-Troubleshooting
-- If you see a "JSON Parse error: Unexpected EOF", check that you are not attempting to parse form-encoded body as JSON. Use the parsed `body` provided by the server framework.
-- If click coordinates are missing, ensure the form contains `<input type="image">` and that the browser is allowed to submit the image input coordinates (some cross-origin image settings may affect behavior).
-
-License
-
-MIT
-# onlycaptcha
-
-To install dependencies:
-
-```bash
-bun install
-```
-
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.3.3. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
